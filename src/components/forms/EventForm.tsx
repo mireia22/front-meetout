@@ -98,7 +98,7 @@ const EventForm: React.FC<EventFormProps> = ({
           />
         </div>
       </article>
-      {error && <p>{error}</p>}
+      {error && <p>🚫 {error}</p>}
 
       {loading ? <Loader /> : <button>Post Event</button>}
       {deleteEvent && (
