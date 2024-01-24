@@ -119,6 +119,10 @@ select {
   letter-spacing: 1px;
 }
 
+select {
+  padding: 0.54rem;
+}
+
 .inputfile-container {
   align-self: center;
   border: 2px solid var(--white);
