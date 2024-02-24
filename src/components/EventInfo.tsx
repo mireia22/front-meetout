@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Event } from "../types/Types";
 import Creator from "./Creator";
+
 interface EventInfoProps {
   event: Event;
 }
@@ -60,10 +61,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
         <p>{difficulty}</p>
       </article>
       <article className="card-event-image">
-        <img
-          src={eventImage || "/front-meetout/public/event.png"}
-          alt="Event image"
-        />
+        <img src={eventImage || "/images/skatepark.jpg"} alt="Event image" />
       </article>
       <article>
         <p>{description}</p>

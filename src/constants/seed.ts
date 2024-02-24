@@ -1,4 +1,6 @@
 import { Event } from "../types/Types";
+import runningImage from "../assets/running.jpg";
+import skateparkImage from "../assets/skatepark.jpg";
 
 const exampleEvents: Event[] = [
   {
@@ -17,7 +19,7 @@ const exampleEvents: Event[] = [
 
     createdAt: "2024-04-18",
     difficulty: "🟡 Medium",
-    eventImage: "../../src/public/running.jpg",
+    eventImage: runningImage,
     participants: [
       {
         _id: "1",
@@ -46,7 +48,7 @@ const exampleEvents: Event[] = [
     },
     createdAt: "2024-04-18",
     difficulty: "🟢 Easy",
-    eventImage: "../../src/public/skatepark.jpg",
+    eventImage: skateparkImage,
     participants: [
       {
         _id: "2",

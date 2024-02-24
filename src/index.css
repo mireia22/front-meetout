@@ -212,7 +212,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 .example-events {
   filter: grayscale(90%);
@@ -294,7 +294,7 @@ small {
 .welcome {
   min-height: calc(100vh - (64px + 64px));
   color: var(--white);
-  background-image: url("../src/public/welcome.jpg");
+  background-image: url("./public/images/welcome.jpg");
   background-size: cover;
   display: flex;
   padding: 1rem;
