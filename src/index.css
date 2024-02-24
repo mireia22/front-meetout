@@ -60,7 +60,7 @@ section {
 a {
   color: var(--white);
   cursor: pointer;
-  padding: 0.2rem;
+  padding: 0.45rem;
   border-radius: 6px;
 }
 a:hover {

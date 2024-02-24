@@ -61,7 +61,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
         <p>{difficulty}</p>
       </article>
       <article className="card-event-image">
-        <img src={eventImage || "/images/skatepark.jpg"} alt="Event image" />
+        <img src={eventImage || "../assets/event.png"} alt="Event image" />
       </article>
       <article>
         <p>{description}</p>
