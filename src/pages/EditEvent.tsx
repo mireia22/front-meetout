@@ -65,7 +65,6 @@ const EditEvent = () => {
       }
 
       const updatedEvent = await response.json();
-      console.log("UPDATED EVENT", updatedEvent);
       if (!updatedEvent) {
         throw new Error("Server response is empty.");
       }
@@ -92,7 +91,6 @@ const EditEvent = () => {
           },
         }
       );
-      console.log("DELETE RESPONSE", response);
 
       if (!response.ok) {
         const errorData = await response.json();

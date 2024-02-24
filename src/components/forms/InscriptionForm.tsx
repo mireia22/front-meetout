@@ -46,7 +46,6 @@ const InscriptionForm = () => {
           body: JSON.stringify(asistantData),
         }
       );
-      console.log("Response:", response);
       if (!response.ok) {
         const errorData = await response.json();
         console.log("error", errorData.message);
