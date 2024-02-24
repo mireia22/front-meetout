@@ -216,7 +216,7 @@ select {
   }
 }
 .card-event-image {
-  min-height: 10rem;
+  height: 10rem;
   width: 12rem;
   background-color: #000000;
   border-radius: 5px;
