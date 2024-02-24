@@ -2,8 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import UserForm from "../components/forms/UserForm";
 import { useState } from "react";
 import { UserData } from "../types/Types";
+import { useUserDataContext } from "../hooks/useUserData";
 
 const Register = () => {
+  const { setUserData } = useUserDataContext();
+
   const [localUserData, setLocalUserData] = useState<UserData>({
     name: "",
     email: "",
@@ -58,9 +61,14 @@ const Register = () => {
         const errorData = await response.json();
         setError(errorData.message);
       } else {
-        const newUser = await response.json();
-        setLocalUserData(newUser);
-        navigate("/login");
+        const { token, user } = await response.json();
+        localStorage.setItem("token", token);
+        setUserData((prevUserData) => ({
+          ...prevUserData,
+          user,
+          token,
+        }));
+        navigate("/");
       }
 
       setLoading(false);

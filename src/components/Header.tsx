@@ -13,6 +13,7 @@ const Header = () => {
       </Link>
       {userData?.token ? (
         <nav>
+          <Link to="/findEvent">Find Event</Link>
           <Link to="/create-event">Create Event ➕</Link>
           <Link to="/profile">
             <Avatar user={userData.user} size="small" />
@@ -21,6 +22,7 @@ const Header = () => {
         </nav>
       ) : (
         <nav>
+          <Link to="/findEvent">Find Event</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Register</Link>
         </nav>

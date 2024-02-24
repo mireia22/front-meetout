@@ -16,7 +16,9 @@ const ListOfAssistants = () => {
       setIsLoading(true);
 
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/events/${eventId}/asistants`
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/events/${eventId?.toString()}/asistants`
       );
 
       if (!response.ok) {

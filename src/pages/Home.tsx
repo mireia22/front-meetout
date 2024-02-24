@@ -1,13 +1,7 @@
-import AllEvents from "../components/AllEvents";
-import FilterEvents from "../components/FilterEvents";
+import FindEvent from "./FindEvent";
 
 const Home = () => {
-  return (
-    <section>
-      <FilterEvents />
-      <AllEvents />
-    </section>
-  );
+  return <FindEvent />;
 };
 
 export default Home;
