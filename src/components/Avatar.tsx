@@ -12,7 +12,11 @@ const Avatar: React.FC<AvatarProps> = ({ user, size = "standard" }) => {
       className={`profile-photo`}
       style={{ width: imageSize, height: imageSize }}
     >
-      <img src={user?.avatar || ""} alt={user?.name || "USERNAME"} />
+      <img
+        src={user?.avatar || ""}
+        alt={user?.name || "USERNAME"}
+        loading="lazy"
+      />
     </article>
   );
 };
