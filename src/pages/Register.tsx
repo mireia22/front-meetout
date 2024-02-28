@@ -33,17 +33,11 @@ const Register = () => {
       setLoading(true);
 
       const formData = new FormData();
-      if (localUserData.name !== null) {
-        formData.append("name", localUserData.name);
-      }
-
-      if (localUserData.email !== null) {
-        formData.append("email", localUserData.email);
-      }
-
-      if (localUserData.password !== null) {
-        formData.append("password", localUserData.password);
-      }
+      Object.entries(localUserData).forEach(([key, value]) => {
+        if (value !== null && value !== undefined) {
+          formData.append(key, value as string);
+        }
+      });
 
       if (avatar !== null) {
         formData.append("avatar", avatar);

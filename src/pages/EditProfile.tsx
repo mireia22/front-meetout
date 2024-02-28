@@ -36,21 +36,16 @@ const EditProfile = () => {
       setLoading(true);
 
       const formData = new FormData();
-      if (localUserData.name !== null) {
-        formData.append("name", localUserData.name);
-      }
-
-      if (localUserData.email !== null) {
-        formData.append("email", localUserData.email);
-      }
-
-      if (localUserData.password !== null) {
-        formData.append("password", localUserData.password);
-      }
+      Object.entries(localUserData).forEach(([key, value]) => {
+        if (value !== null && value !== undefined) {
+          formData.append(key, value as string);
+        }
+      });
 
       if (avatar !== null) {
         formData.append("avatar", avatar);
       }
+
       const response = await fetch(
         `${import.meta.env.VITE_BASE_URL}/users/edit`,
         {
@@ -64,9 +59,9 @@ const EditProfile = () => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.log("error", errorData.message);
-
         setError(errorData.message);
+        setLoading(false);
+        return;
       }
 
       const updatedUser = await response.json();
@@ -79,7 +74,9 @@ const EditProfile = () => {
       setLocalUserData(updatedUser);
       navigate("/profile");
     } catch (err) {
-      console.log(error);
+      console.error(err);
+      setError("An error occurred. Please try again later.");
+      setLoading(false);
     }
   };
   if (loading) {
