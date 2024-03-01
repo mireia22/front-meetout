@@ -39,7 +39,7 @@ const AllEvents: React.FC = () => {
 
   return (
     <article>
-      {events && events.length > 0 ? (
+      {events && events.length > 0 && (
         <ul className="all-events">
           {events.map((event) => (
             <li key={event._id}>
@@ -47,7 +47,8 @@ const AllEvents: React.FC = () => {
             </li>
           ))}
         </ul>
-      ) : (
+      )}
+      {exEvents && exEvents.length > 0 && (
         <div className="example-div">
           <h3>These are fake events.</h3>
           <p>
