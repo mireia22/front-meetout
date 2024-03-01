@@ -23,6 +23,7 @@ const AllEvents: React.FC = () => {
           setExEvents(exampleEvents);
         } else {
           setEvents(fetchedEvents);
+          setExEvents([]);
         }
         console.log("exEvents", exEvents);
         console.log("fetched events", events);
@@ -49,7 +50,7 @@ const AllEvents: React.FC = () => {
           ))}
         </ul>
       )}
-      {exampleEvents && exampleEvents.length > 0 && (
+      {exEvents && exEvents.length > 0 && (
         <div className="example-div">
           <h3>These are fake events.</h3>
           <p>

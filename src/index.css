@@ -215,6 +215,7 @@ select {
   }
 }
 .card-event-image {
+  display: flex;
   height: 10rem;
   width: 12rem;
   background-color: #000000;
@@ -222,7 +223,7 @@ select {
   > img {
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 /* EXAMPLE EVENTS */
