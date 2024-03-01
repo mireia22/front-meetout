@@ -24,7 +24,7 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={userData?.token ? <Home /> : <Welcome />}
+            element={userData?.token ? <FindEvent /> : <Welcome />}
           ></Route>
           <Route path="/findEvent" element={<FindEvent />}></Route>
           <Route path="/login" element={<Login />}></Route>
