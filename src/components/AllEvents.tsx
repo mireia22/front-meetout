@@ -8,6 +8,7 @@ import { useUserDataContext } from "../hooks/useUserData";
 
 const AllEvents: React.FC = () => {
   const { events, setEvents } = useEventDataContext();
+  const [exEvents, setExEvents] = useState<Event[] | null>(null);
   const [loading, setLoading] = useState(false);
   const { userData } = useUserDataContext();
 
@@ -19,22 +20,19 @@ const AllEvents: React.FC = () => {
         const fetchedEvents = await response.json();
 
         if (fetchedEvents.length === 0) {
-          const exampleEventsResponse = await fetch(
-            `${import.meta.env.VITE_BASE_URL}/events/examples`,
-            { method: "POST" }
-          );
-          const exampleEvents = await exampleEventsResponse.json();
-          setEvents(exampleEvents);
+          setExEvents(exampleEvents);
         } else {
           setEvents(fetchedEvents);
         }
+        console.log("exEvents", exEvents);
+        console.log("fetched events", events);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
       setLoading(false);
     };
     fetchEvents();
-  }, [setEvents]);
+  }, []);
 
   if (loading) {
     return <Loader />;
@@ -42,7 +40,7 @@ const AllEvents: React.FC = () => {
 
   return (
     <article>
-      {events && events.length > 0 ? (
+      {events && events.length > 0 && (
         <ul className="all-events">
           {events.map((event) => (
             <li key={event._id}>
@@ -50,14 +48,14 @@ const AllEvents: React.FC = () => {
             </li>
           ))}
         </ul>
-      ) : (
+      )}
+      {exampleEvents && exampleEvents.length > 0 && (
         <div className="example-div">
           <h3>These are fake events.</h3>
           <p>
             If you want to experience the full functionality and see real
             events, we encourage you to join and create your own events.
           </p>
-
           {userData?.token ? (
             <Link to="/create-event" className="welcome-link">
               Create Event

@@ -18,22 +18,22 @@ const App = () => {
   const { userData } = useUserDataContext();
 
   return (
-    <div className="app-container">
+    <>
       <Header />
       <main>
         <Routes>
           <Route
             path="/"
             element={userData?.token ? <FindEvent /> : <Welcome />}
-          ></Route>
-          <Route path="/findEvent" element={<FindEvent />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/edit-profile" element={<EditProfile />}></Route>
-          <Route path="/create-event" element={<PostEvent />}></Route>
-          <Route path="/:eventId/edit" element={<EditEvent />}></Route>
-          <Route path="/:eventId/inscription" element={<Inscription />}></Route>
+          />
+          <Route path="/findEvent" element={<FindEvent />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/create-event" element={<PostEvent />} />
+          <Route path="/:eventId/edit" element={<EditEvent />} />
+          <Route path="/:eventId/inscription" element={<Inscription />} />
           <Route
             path="/:eventId/asistants"
             element={<ListOfAssistants />}
@@ -41,7 +41,7 @@ const App = () => {
         </Routes>
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 
