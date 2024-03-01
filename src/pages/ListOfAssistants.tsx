@@ -34,8 +34,6 @@ const ListOfAssistants = () => {
       if (fetchedData.message === "Success") {
         setAssistants(fetchedData.asistants);
         setEvent(fetchedData.eventTitle);
-      } else {
-        setError("No assistants yet");
       }
     } catch (error) {
       console.log(error);
@@ -57,21 +55,22 @@ const ListOfAssistants = () => {
   }
   return (
     <article>
-      {asistants ? (
-        <ul className="asistants-list">
-          <h4>
-            Asistants {event}: {countAsistants(asistants)}
-          </h4>
-          {asistants.map((assistant) => (
-            <li key={assistant._id} className="asistant">
-              {assistant.name}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <h3>No assistants yet</h3>
-      )}
-      {error && <p>{error}</p>}
+      <ul className="asistants-list">
+        {asistants ? (
+          <>
+            <h4>
+              Asistants {event}: {countAsistants(asistants)}
+            </h4>
+            {asistants.map((assistant) => (
+              <li key={assistant._id} className="asistant">
+                {assistant.name}
+              </li>
+            ))}
+          </>
+        ) : (
+          error && <p>🚫{error}</p>
+        )}
+      </ul>
     </article>
   );
 };

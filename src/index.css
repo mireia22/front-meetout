@@ -45,7 +45,6 @@ main {
   color: black;
   background-color: var(--white);
   min-height: calc(100vh - (48px + 48px));
-  padding: 1rem;
   overflow-y: scroll;
 }
 
@@ -55,11 +54,12 @@ section {
   text-align: center;
   align-items: center;
   gap: 2rem;
+  padding: 1rem;
 }
 
 /* WELCOME PAGE */
 .welcome {
-  min-height: calc(100vh - (64px + 64px));
+  min-height: calc(100vh - (48px + 48px));
   color: var(--white);
   background-image: url("./public/images/welcome.jpg");
   background-size: cover;
@@ -200,7 +200,6 @@ select {
   width: 16rem;
   height: 30rem;
   border-radius: 8px;
-  gap: 1rem;
   > article {
     width: 100%;
     display: flex;
@@ -261,16 +260,19 @@ select {
 .asistants-list {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
-  width: 20rem;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 10vh auto;
+  > h3 {
+    align-self: center;
+  }
 }
 .asistant {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: rgba(29, 7, 52, 0.1);
-
+  width: 15rem;
   color: var(--black);
   padding: 0.5rem;
   font-weight: 600;
