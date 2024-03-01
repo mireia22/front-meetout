@@ -32,8 +32,8 @@ const ListOfAssistants = () => {
       console.log("fetched data", fetchedData);
 
       if (fetchedData.message === "Success") {
-        setAssistants(fetchedData.asistants);
         setEvent(fetchedData.eventTitle);
+        setAssistants(fetchedData.asistants);
       }
     } catch (error) {
       console.log(error);
@@ -56,11 +56,11 @@ const ListOfAssistants = () => {
   return (
     <article>
       <ul className="asistants-list">
+        <h3>
+          Asistants {event}: {countAsistants(asistants)}
+        </h3>
         {asistants ? (
           <>
-            <h4>
-              Asistants {event}: {countAsistants(asistants)}
-            </h4>
             {asistants.map((assistant) => (
               <li key={assistant._id} className="asistant">
                 {assistant.name}

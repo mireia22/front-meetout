@@ -8,7 +8,7 @@ import { useUserDataContext } from "../hooks/useUserData";
 
 const AllEvents: React.FC = () => {
   const { events, setEvents } = useEventDataContext();
-  const [exEvents, setExEvents] = useState<Event[] | null>(null);
+  const [exEvents, setExEvents] = useState(exampleEvents);
   const [loading, setLoading] = useState(false);
   const { userData } = useUserDataContext();
 
@@ -25,15 +25,13 @@ const AllEvents: React.FC = () => {
           setEvents(fetchedEvents);
           setExEvents([]);
         }
-        console.log("exEvents", exEvents);
-        console.log("fetched events", events);
       } catch (error) {
         console.error("Error fetching events:", error);
       }
       setLoading(false);
     };
     fetchEvents();
-  }, []);
+  }, [setEvents]);
 
   if (loading) {
     return <Loader />;
@@ -41,7 +39,7 @@ const AllEvents: React.FC = () => {
 
   return (
     <article>
-      {events && events.length > 0 && (
+      {events && events.length > 0 ? (
         <ul className="all-events">
           {events.map((event) => (
             <li key={event._id}>
@@ -49,8 +47,7 @@ const AllEvents: React.FC = () => {
             </li>
           ))}
         </ul>
-      )}
-      {exEvents && exEvents.length > 0 && (
+      ) : (
         <div className="example-div">
           <h3>These are fake events.</h3>
           <p>
