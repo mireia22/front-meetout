@@ -48,7 +48,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
 
   return (
     <div className="event-info">
-      <h2>{title}</h2>
+      <h2>{title?.toUpperCase()}</h2>
       <article>
         <h4>{date}</h4>
         <h4>{sport}</h4>
@@ -56,7 +56,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
       <article>
         <p className="ubication">
           <FaMapMarkerAlt />
-          {ubication}
+          {ubication?.toUpperCase()}
         </p>
         <p>{difficulty}</p>
       </article>

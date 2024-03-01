@@ -189,6 +189,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  margin-top: 1rem;
 }
 .event-info {
   display: flex;
@@ -198,7 +199,7 @@ select {
   justify-content: space-between;
   align-items: center;
   width: 16rem;
-  height: 30rem;
+  min-height: 30rem;
   border-radius: 8px;
   > article {
     width: 100%;
@@ -269,10 +270,10 @@ select {
   }
 }
 .asistant {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   background-color: rgba(29, 7, 52, 0.1);
-  width: 15rem;
+  width: 30rem;
   color: var(--black);
   padding: 0.5rem;
   font-weight: 600;
