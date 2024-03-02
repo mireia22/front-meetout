@@ -1,12 +1,16 @@
 import { useState } from "react";
-import Loader from "../components/Loader";
-import UserForm from "../components/forms/UserForm";
+import UserForm from "../components/organisms/forms/UserForm";
 import { useUserDataContext } from "../hooks/useUserData";
-import { UserData } from "../types/Types";
 import { useCommonState } from "../hooks/useCommonState";
+import Loader from "../components/atoms/Loader";
+import { useFormInput } from "../hooks/useFormInput";
 
 const EditProfile = () => {
-  const [localUserData, setLocalUserData] = useState<UserData>({
+  const {
+    formState: localUserData,
+    setFormState,
+    handleInputChange,
+  } = useFormInput({
     name: "",
     email: "",
     password: "",
@@ -15,15 +19,6 @@ const EditProfile = () => {
   const { error, setError, loading, setLoading, navigate } = useCommonState();
   const { userData } = useUserDataContext();
   const token = userData?.token;
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setLocalUserData((prevState) => {
-      const newValue = e.target.value !== null ? e.target.value : "";
-      return { ...prevState, [e.target.name]: newValue };
-    });
-  };
 
   const editUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,9 +60,8 @@ const EditProfile = () => {
       if (!updatedUser) {
         throw new Error("Server response is empty.");
       }
-
       setLoading(false);
-      setLocalUserData(updatedUser);
+      setFormState((prevUserState) => ({ ...prevUserState, updatedUser }));
       navigate("/profile");
     } catch (err) {
       console.error(err);

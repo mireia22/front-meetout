@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
-import { useUserDataContext } from "../../hooks/useUserData";
+import { useEffect } from "react";
+import { useUserDataContext } from "../../../hooks/useUserData";
 import { useParams } from "react-router-dom";
-import Loader from "../Loader";
-import { useCommonState } from "../../hooks/useCommonState";
+import { useCommonState } from "../../../hooks/useCommonState";
+import Loader from "../../atoms/Loader";
+import { useFormInput } from "../../../hooks/useFormInput";
 
 const InscriptionForm = () => {
   const { userData } = useUserDataContext();
   const { eventId } = useParams();
-  const [asistantData, setAsistantData] = useState({
+  const { formState: asistantData, handleInputChange } = useFormInput({
     name: "",
     email: "",
   });
@@ -21,17 +22,9 @@ const InscriptionForm = () => {
     }
   }, []);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setAsistantData((prevState) => ({ ...prevState, [name]: value }));
-  };
-
   const makeInscription = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
-
     try {
       setLoading(true);
       const response = await fetch(
@@ -52,7 +45,6 @@ const InscriptionForm = () => {
       } else {
         navigate("/");
       }
-
       setLoading(false);
     } catch (error) {
       console.log(error);

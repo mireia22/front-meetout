@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useUserDataContext } from "../hooks/useUserData";
 import { IoHome } from "react-icons/io5";
-import Avatar from "./Avatar";
-import LogoutBtn from "./buttons/LogoutBtn";
+import { useUserDataContext } from "../../hooks/useUserData";
+import Avatar from "../atoms/Avatar";
+import LogoutBtn from "../atoms/LogoutBtn";
 
 const Header = () => {
   const { userData } = useUserDataContext();

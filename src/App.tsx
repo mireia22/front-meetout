@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./index.css";
-import Header from "./components/Header";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import PostEvent from "./pages/PostEvent";
-import Footer from "./components/Footer";
 import Inscription from "./pages/Inscription";
 import ListOfAssistants from "./pages/ListOfAssistants";
 import EditEvent from "./pages/EditEvent";
@@ -13,6 +11,8 @@ import EditProfile from "./pages/EditProfile";
 import { useUserDataContext } from "./hooks/useUserData";
 import Welcome from "./pages/Welcome";
 import FindEvent from "./pages/FindEvent";
+import Header from "./components/organisms/Header";
+import Footer from "./components/organisms/Footer";
 const App = () => {
   const { userData } = useUserDataContext();
 

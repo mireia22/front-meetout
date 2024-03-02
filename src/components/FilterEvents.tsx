@@ -1,16 +1,11 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useEventDataContext } from "../hooks/useEventData";
 import { DIFFICULTY, SPORTS } from "../constants/constants";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useFormInput } from "../hooks/useFormInput";
 
-interface Filters {
-  sport: string;
-  difficulty: string;
-  title: string;
-  ubication: string;
-}
 const FilterEvents: React.FC = () => {
-  const [filters, setFilters] = useState<Filters>({
+  const { formState: filters, handleInputChange } = useFormInput({
     sport: "",
     difficulty: "",
     title: "",
@@ -39,16 +34,6 @@ const FilterEvents: React.FC = () => {
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFilters((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
   };
 
   useEffect(() => {

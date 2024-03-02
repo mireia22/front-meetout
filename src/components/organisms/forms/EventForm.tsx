@@ -1,6 +1,6 @@
-import { DIFFICULTY, SPORTS } from "../../constants/constants";
-import InputFile from "../InputFile";
-import Loader from "../Loader";
+import { DIFFICULTY, SPORTS } from "../../../constants/constants";
+import InputFile from "../../atoms/InputFile";
+import Loader from "../../atoms/Loader";
 
 interface EventFormProps {
   event: {

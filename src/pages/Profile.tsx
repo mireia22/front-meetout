@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useUserDataContext } from "../hooks/useUserData";
 import { Link } from "react-router-dom";
 import { Event } from "../types/Types";
-import Avatar from "../components/Avatar";
+import Avatar from "../components/atoms/Avatar";
 const Profile = () => {
   const { userData, fetchUser } = useUserDataContext();
   const user = userData?.user;

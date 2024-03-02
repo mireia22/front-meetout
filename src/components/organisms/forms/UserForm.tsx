@@ -1,6 +1,6 @@
 import React from "react";
-import InputFile from "../InputFile";
-import { UserData } from "../../types/Types";
+import { UserData } from "../../../types/Types";
+import InputFile from "../../atoms/InputFile";
 
 interface UserFormProps {
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;

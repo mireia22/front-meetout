@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginFormUserData } from "../../types/Types";
+import { LoginFormUserData } from "../../../types/Types";
 
 interface LoginFormProps {
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;

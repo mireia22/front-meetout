@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Loader from "./Loader";
 import { useEventDataContext } from "../hooks/useEventData";
 import EventInfo from "./EventInfo";
 import exampleEvents from "../constants/seed";
 import { Link } from "react-router-dom";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
+import Loader from "./atoms/Loader";
 
 const AllEvents: React.FC = () => {
   const { events, setEvents } = useEventDataContext();

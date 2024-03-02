@@ -1,4 +1,4 @@
-import InscriptionForm from "../components/forms/InscriptionForm";
+import InscriptionForm from "../components/organisms/forms/InscriptionForm";
 
 const Inscription = () => {
   return (

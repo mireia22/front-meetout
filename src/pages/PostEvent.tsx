@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import EventForm from "../components/forms/EventForm";
+import EventForm from "../components/organisms/forms/EventForm";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
+import { useFormInput } from "../hooks/useFormInput";
+import { useEventDataContext } from "../hooks/useEventData";
 
 const PostEvent = () => {
-  const [event, setEvent] = useState({
+  const { setEvents } = useEventDataContext();
+  const { formState: event, handleInputChange } = useFormInput({
     title: "",
     date: "",
     sport: "",
@@ -22,14 +25,6 @@ const PostEvent = () => {
       navigate("/");
     }
   }, []);
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setEvent((prevState) => {
-      return { ...prevState, [e.target.name]: e.target.value };
-    });
-  };
 
   const postEvent = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,7 +55,7 @@ const PostEvent = () => {
         setError(errorData.message);
       } else {
         const eventData = await response.json();
-        setEvent(eventData);
+        setEvents((prevEvents) => [...prevEvents, eventData]);
         navigate("/");
       }
       setLoading(false);

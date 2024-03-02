@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loader from "../components/Loader";
 import { Asistant } from "../types/Types";
 import { useCommonState } from "../hooks/useCommonState";
+import Loader from "../components/atoms/Loader";
 
 const ListOfAssistants = () => {
   const { eventId } = useParams();

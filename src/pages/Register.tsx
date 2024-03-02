@@ -1,29 +1,19 @@
 import { Link } from "react-router-dom";
-import UserForm from "../components/forms/UserForm";
+import UserForm from "../components/organisms/forms/UserForm";
 import { useState } from "react";
-import { UserData } from "../types/Types";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
+import { useFormInput } from "../hooks/useFormInput";
 
 const Register = () => {
   const { setUserData } = useUserDataContext();
-
-  const [localUserData, setLocalUserData] = useState<UserData>({
+  const { formState: localUserData, handleInputChange } = useFormInput({
     name: "",
     email: "",
     password: "",
   });
   const [avatar, setAvatar] = useState<File | null>(null);
   const { error, setError, loading, setLoading, navigate } = useCommonState();
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setLocalUserData((prevState) => {
-      const newValue = e.target.value !== null ? e.target.value : "";
-      return { ...prevState, [e.target.name]: newValue };
-    });
-  };
 
   const registerUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

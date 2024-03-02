@@ -3,8 +3,8 @@ import { useUserDataContext } from "../hooks/useUserData";
 import { useEffect } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Event } from "../types/Types";
-import Creator from "./Creator";
 import { useCommonState } from "../hooks/useCommonState";
+import Creator from "./molecules/Creator";
 
 interface EventInfoProps {
   event: Event;

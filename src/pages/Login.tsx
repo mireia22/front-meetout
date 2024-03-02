@@ -1,25 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useUserDataContext } from "../hooks/useUserData";
-import { LoginFormUserData } from "../types/Types";
-import LoginForm from "../components/forms/LoginForm";
+import LoginForm from "../components/organisms/forms/LoginForm";
 import { useCommonState } from "../hooks/useCommonState";
+import { useFormInput } from "../hooks/useFormInput";
 
 const Login = () => {
   const { setUserData } = useUserDataContext();
-  const [formUserData, setFormUserData] = useState<LoginFormUserData>({
+  const { formState: formUserData, handleInputChange } = useFormInput({
     email: "",
     password: "",
   });
   const { error, setError, loading, setLoading, navigate } = useCommonState();
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setFormUserData((prevState: LoginFormUserData | null) => {
-      return { ...prevState!, [e.target.name]: e.target.value };
-    });
-  };
   const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
