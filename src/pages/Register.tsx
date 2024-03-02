@@ -1,8 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UserForm from "../components/forms/UserForm";
 import { useState } from "react";
 import { UserData } from "../types/Types";
 import { useUserDataContext } from "../hooks/useUserData";
+import { useCommonState } from "../hooks/useCommonState";
 
 const Register = () => {
   const { setUserData } = useUserDataContext();
@@ -13,9 +14,7 @@ const Register = () => {
     password: "",
   });
   const [avatar, setAvatar] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const { error, setError, loading, setLoading, navigate } = useCommonState();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>

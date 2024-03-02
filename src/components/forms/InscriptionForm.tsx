@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useUserDataContext } from "../../hooks/useUserData";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Loader from "../Loader";
+import { useCommonState } from "../../hooks/useCommonState";
 
 const InscriptionForm = () => {
   const { userData } = useUserDataContext();
@@ -12,10 +13,7 @@ const InscriptionForm = () => {
   });
   console.log("current user", userData);
   const token = userData?.token;
-
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const { error, setError, loading, setLoading, navigate } = useCommonState();
 
   useEffect(() => {
     if (!token) {
@@ -29,6 +27,7 @@ const InscriptionForm = () => {
     const { name, value } = e.target;
     setAsistantData((prevState) => ({ ...prevState, [name]: value }));
   };
+
   const makeInscription = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");

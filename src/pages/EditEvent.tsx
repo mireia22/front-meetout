@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useUserDataContext } from "../hooks/useUserData";
 import EventForm from "../components/forms/EventForm";
+import { useCommonState } from "../hooks/useCommonState";
 
 const EditEvent = () => {
   const [event, setEvent] = useState({
@@ -13,9 +14,9 @@ const EditEvent = () => {
   });
   const [eventImage, setEventImage] = useState<File | null>();
   const { userData } = useUserDataContext();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+
+  const { error, setError, loading, setLoading, navigate } = useCommonState();
+
   const token = userData?.token;
   const { eventId } = useParams();
 

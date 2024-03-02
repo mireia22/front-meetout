@@ -47,7 +47,7 @@ const EventForm: React.FC<EventFormProps> = ({
           <label htmlFor="ubication">Ubication</label>
           <input
             type="text"
-            placeholder="Ubication "
+            placeholder="Ubication"
             name="ubication"
             value={event.ubication}
             onChange={handleInputChange}

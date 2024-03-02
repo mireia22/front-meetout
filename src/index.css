@@ -2,10 +2,10 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   --white: rgba(255, 255, 255, 0.87);
-  --yellow: rgb(246, 196, 47);
+  --yellow: #f6c42f;
   --warning: #f3213a;
   --gold: #948455;
-  --dark-purple: rgb(29, 7, 52);
+  --dark-purple: #1d0734;
   --black: #000000;
 }
 

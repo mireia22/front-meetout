@@ -1,9 +1,9 @@
+import { useCommonState } from "../../hooks/useCommonState";
 import { useUserDataContext } from "../../hooks/useUserData";
-import { useNavigate } from "react-router-dom";
 
 const LogoutBtn = () => {
   const { setUserData } = useUserDataContext();
-  const navigate = useNavigate();
+  const { navigate } = useCommonState();
 
   const logout = () => {
     setUserData(null);

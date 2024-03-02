@@ -1,8 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useUserDataContext } from "../hooks/useUserData";
 import { LoginFormUserData } from "../types/Types";
 import LoginForm from "../components/forms/LoginForm";
+import { useCommonState } from "../hooks/useCommonState";
 
 const Login = () => {
   const { setUserData } = useUserDataContext();
@@ -10,10 +11,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate();
+  const { error, setError, loading, setLoading, navigate } = useCommonState();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>

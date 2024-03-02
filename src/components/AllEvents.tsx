@@ -5,11 +5,12 @@ import EventInfo from "./EventInfo";
 import exampleEvents from "../constants/seed";
 import { Link } from "react-router-dom";
 import { useUserDataContext } from "../hooks/useUserData";
+import { useCommonState } from "../hooks/useCommonState";
 
 const AllEvents: React.FC = () => {
   const { events, setEvents } = useEventDataContext();
   const [exEvents, setExEvents] = useState(exampleEvents);
-  const [loading, setLoading] = useState(false);
+  const { loading, setLoading } = useCommonState();
   const { userData } = useUserDataContext();
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const AllEvents: React.FC = () => {
 
   return (
     <article>
-      {events && events.length > 0 && (
+      {events && events.length > 0 ? (
         <ul className="all-events">
           {events.map((event) => (
             <li key={event._id}>
@@ -47,6 +48,8 @@ const AllEvents: React.FC = () => {
             </li>
           ))}
         </ul>
+      ) : (
+        <p>No events yet.</p>
       )}
       {exEvents && exEvents.length > 0 && (
         <div className="example-div">

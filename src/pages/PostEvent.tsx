@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import EventForm from "../components/forms/EventForm";
 import { useUserDataContext } from "../hooks/useUserData";
-import { useNavigate } from "react-router-dom";
+import { useCommonState } from "../hooks/useCommonState";
 
 const PostEvent = () => {
   const [event, setEvent] = useState({
@@ -13,9 +13,8 @@ const PostEvent = () => {
   });
   const [eventImage, setEventImage] = useState<File | null>(null);
   const { userData } = useUserDataContext();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const { error, setError, loading, setLoading, navigate } = useCommonState();
+
   const token = userData?.token;
 
   useEffect(() => {

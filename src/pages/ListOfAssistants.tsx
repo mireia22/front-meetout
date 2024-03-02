@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import { Asistant } from "../types/Types";
+import { useCommonState } from "../hooks/useCommonState";
 
 const ListOfAssistants = () => {
-  const [loading, setIsLoading] = useState(false);
   const { eventId } = useParams();
   const [asistants, setAssistants] = useState<Asistant[]>([]);
   const [event, setEvent] = useState(null);
-  const [error, setError] = useState("");
+  const { error, setError, loading, setLoading } = useCommonState();
 
-  const fetchEvents = async () => {
+  const fetchAssistants = async () => {
     setError("");
     try {
-      setIsLoading(true);
+      setLoading(true);
 
       const response = await fetch(
         `${
@@ -38,12 +38,12 @@ const ListOfAssistants = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchEvents();
+    fetchAssistants();
   }, []);
 
   const countAsistants = (asistants: Asistant[]) => {

@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useUserDataContext } from "../hooks/useUserData";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Event } from "../types/Types";
 import Creator from "./Creator";
+import { useCommonState } from "../hooks/useCommonState";
 
 interface EventInfoProps {
   event: Event;
@@ -22,7 +23,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
     eventImage,
     createdAt,
   } = event;
-  const [error, setError] = useState("");
+  const { error, setError } = useCommonState();
   const { userData, fetchUser } = useUserDataContext();
   const user = userData?.user;
 
@@ -34,7 +35,7 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
     (postedEvent) => postedEvent._id === event._id
   );
 
-  const navigate = useNavigate();
+  const { navigate } = useCommonState();
   useEffect(() => {
     fetchUser();
   }, []);
