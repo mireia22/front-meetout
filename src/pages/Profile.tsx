@@ -1,19 +1,11 @@
-import { useEffect } from "react";
 import { useUserDataContext } from "../hooks/useUserData";
 import { Link } from "react-router-dom";
-import { Event } from "../types/Types";
 import Avatar from "../components/atoms/Avatar";
+import { countItems } from "../utils/countItems";
 const Profile = () => {
-  const { userData, fetchUser } = useUserDataContext();
+  const { userData } = useUserDataContext();
   const user = userData?.user;
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  const countEvents = (events: Event[] | undefined) => {
-    return events ? events.length : 0;
-  };
   return (
     <section className="profile-container">
       <article>
@@ -30,7 +22,7 @@ const Profile = () => {
       </article>
       <article>
         <ul className="asistants-list">
-          <h3>Posted Events: {countEvents(user?.postedEvents)}</h3>
+          <h3>POSTED EVENTS: {countItems(user?.postedEvents)}</h3>
           {user?.postedEvents ? (
             user.postedEvents.map((event) => (
               <li key={event._id} className="asistant">
@@ -44,7 +36,7 @@ const Profile = () => {
           )}
         </ul>
         <ul className="asistants-list">
-          <h3>Asisted Events: {countEvents(user?.asistedEvents)} </h3>
+          <h3>ASSISTED EVENTS: {countItems(user?.asistedEvents)} </h3>
           {user?.asistedEvents ? (
             user.asistedEvents.map((event) => (
               <li key={event._id} className="asistant">

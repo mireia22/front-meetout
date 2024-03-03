@@ -4,14 +4,21 @@ import { useState } from "react";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
 import { useFormInput } from "../hooks/useFormInput";
+interface LocalUserData {
+  [key: string]: string | null;
+  name: string;
+  email: string;
+  password: string;
+}
 
 const Register = () => {
   const { setUserData } = useUserDataContext();
-  const { formState: localUserData, handleInputChange } = useFormInput({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const { formState: localUserData, handleInputChange } =
+    useFormInput<LocalUserData>({
+      name: "",
+      email: "",
+      password: "",
+    });
   const [avatar, setAvatar] = useState<File | null>(null);
   const { error, setError, loading, setLoading, navigate } = useCommonState();
 
@@ -53,7 +60,6 @@ const Register = () => {
         }));
         navigate("/");
       }
-
       setLoading(false);
     } catch (err) {
       console.log(error);

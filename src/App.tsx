@@ -10,7 +10,7 @@ import EditEvent from "./pages/EditEvent";
 import EditProfile from "./pages/EditProfile";
 import { useUserDataContext } from "./hooks/useUserData";
 import Welcome from "./pages/Welcome";
-import FindEvent from "./pages/FindEvent";
+import Home from "./pages/Home";
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
 const App = () => {
@@ -21,11 +21,8 @@ const App = () => {
       <Header />
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={userData?.token ? <FindEvent /> : <Welcome />}
-          />
-          <Route path="/findEvent" element={<FindEvent />} />
+          <Route path="/" element={userData?.token ? <Home /> : <Welcome />} />
+          <Route path="/findEvent" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />

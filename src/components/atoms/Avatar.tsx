@@ -1,4 +1,4 @@
-import { UserData } from "../types/Types";
+import { UserData } from "../../types/Types";
 
 interface AvatarProps {
   user: UserData | null;

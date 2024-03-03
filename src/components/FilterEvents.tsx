@@ -1,45 +1,30 @@
-import { useEffect } from "react";
-import { useEventDataContext } from "../hooks/useEventData";
 import { DIFFICULTY, SPORTS } from "../constants/constants";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { useFormInput } from "../hooks/useFormInput";
 
-const FilterEvents: React.FC = () => {
-  const { formState: filters, handleInputChange } = useFormInput({
-    sport: "",
-    difficulty: "",
-    title: "",
-    ubication: "",
-  });
-  const { setEvents } = useEventDataContext();
-
-  const fetchFilteredEvents = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}/events/filtered`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(filters),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch events. Status: ${response.status}`);
-      }
-      const filteredEventsData = await response.json();
-      setEvents(filteredEventsData);
-    } catch (error) {
-      console.error(error);
-    }
+interface FilterEventsProps {
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
+  filters: {
+    sport: string;
+    difficulty: string;
+    title: string;
+    ubication: string;
   };
+  setIsFiltering: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  useEffect(() => {
-    fetchFilteredEvents();
-  }, [filters]);
-
+const FilterEvents: React.FC<FilterEventsProps> = ({
+  onChange,
+  filters,
+  setIsFiltering,
+}) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    onChange(e);
+    setIsFiltering(true);
+  };
   return (
     <article>
       <h3>Find Event: </h3>

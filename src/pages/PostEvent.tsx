@@ -3,11 +3,13 @@ import EventForm from "../components/organisms/forms/EventForm";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
 import { useFormInput } from "../hooks/useFormInput";
-import { useEventDataContext } from "../hooks/useEventData";
 
 const PostEvent = () => {
-  const { setEvents } = useEventDataContext();
-  const { formState: event, handleInputChange } = useFormInput({
+  const {
+    formState: event,
+    handleInputChange,
+    setFormState,
+  } = useFormInput({
     title: "",
     date: "",
     sport: "",
@@ -55,7 +57,7 @@ const PostEvent = () => {
         setError(errorData.message);
       } else {
         const eventData = await response.json();
-        setEvents((prevEvents) => [...prevEvents, eventData]);
+        setFormState(eventData);
         navigate("/");
       }
       setLoading(false);

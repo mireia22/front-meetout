@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Asistant } from "../types/Types";
 import { useCommonState } from "../hooks/useCommonState";
 import Loader from "../components/atoms/Loader";
+import { countItems } from "../utils/countItems";
 
 const ListOfAssistants = () => {
   const { eventId } = useParams();
@@ -46,10 +47,6 @@ const ListOfAssistants = () => {
     fetchAssistants();
   }, []);
 
-  const countAsistants = (asistants: Asistant[]) => {
-    return asistants ? asistants.length : 0;
-  };
-
   if (loading) {
     return <Loader />;
   }
@@ -57,13 +54,13 @@ const ListOfAssistants = () => {
     <article>
       <ul className="asistants-list">
         <h3>
-          Asistants {event}: {countAsistants(asistants)}
+          Asistants {event}: {countItems(asistants)}
         </h3>
         {asistants ? (
           <>
             {asistants.map((assistant) => (
               <li key={assistant._id} className="asistant">
-                {assistant.name}
+                <p> {assistant.name}</p>
               </li>
             ))}
           </>
