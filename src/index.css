@@ -238,6 +238,14 @@ select {
   pointer-events: none;
 }
 
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+}
+
 /* AVATAR */
 .profile-photo {
   display: flex;
@@ -260,9 +268,8 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.9rem;
   justify-content: space-between;
-  margin: 10vh auto;
   > h3 {
     align-self: center;
   }
@@ -271,9 +278,8 @@ select {
   display: flex;
   justify-content: space-between;
   background-color: rgba(29, 7, 52, 0.1);
-  width: 30rem;
-  color: var(--black);
-  padding: 0.5rem;
+  width: 22rem;
+  padding: 0.6rem;
   font-weight: 600;
   border-radius: 5px;
 }

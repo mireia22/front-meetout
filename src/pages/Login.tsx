@@ -17,7 +17,6 @@ const Login = () => {
     setError("");
     try {
       setLoading(true);
-
       const response = await fetch(
         `${import.meta.env.VITE_BASE_URL}/auth/login`,
         {
