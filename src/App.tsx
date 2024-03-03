@@ -15,7 +15,6 @@ import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
 const App = () => {
   const { userData } = useUserDataContext();
-
   return (
     <>
       <Header />

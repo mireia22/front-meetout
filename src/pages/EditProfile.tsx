@@ -1,8 +1,8 @@
 import { useState } from "react";
-import UserForm from "../components/organisms/forms/UserForm";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
 import Loader from "../components/atoms/Loader";
+import UserForm from "../components/organisms/forms/UserForm";
 import { useFormInput } from "../hooks/useFormInput";
 
 const EditProfile = () => {
@@ -11,11 +11,14 @@ const EditProfile = () => {
     setFormState,
     handleInputChange,
   } = useFormInput({
+    title: "",
     name: "",
     email: "",
     password: "",
   });
+
   const [avatar, setAvatar] = useState<File | null>(null);
+
   const { error, setError, loading, setLoading, navigate } = useCommonState();
   const { userData } = useUserDataContext();
   const token = userData?.token;
@@ -25,18 +28,15 @@ const EditProfile = () => {
     setError("");
     try {
       setLoading(true);
-
       const formData = new FormData();
       Object.entries(localUserData).forEach(([key, value]) => {
         if (value !== null && value !== undefined) {
           formData.append(key, value as string);
         }
       });
-
       if (avatar !== null) {
         formData.append("avatar", avatar);
       }
-
       const response = await fetch(
         `${import.meta.env.VITE_BASE_URL}/users/edit`,
         {
@@ -47,21 +47,18 @@ const EditProfile = () => {
           body: formData,
         }
       );
-
       if (!response.ok) {
         const errorData = await response.json();
         setError(errorData.message);
         setLoading(false);
         return;
       }
-
       const updatedUser = await response.json();
-
       if (!updatedUser) {
         throw new Error("Server response is empty.");
       }
       setLoading(false);
-      setFormState((prevUserState) => ({ ...prevUserState, updatedUser }));
+      setFormState(updatedUser);
       navigate("/profile");
     } catch (err) {
       console.error(err);
@@ -86,5 +83,4 @@ const EditProfile = () => {
     </section>
   );
 };
-
 export default EditProfile;

@@ -1,7 +1,8 @@
+import React from "react";
 import { UserData } from "../../types/Types";
 
 interface AvatarProps {
-  user: UserData | null;
+  user: UserData | null | undefined;
   size?: "small" | "standard";
 }
 

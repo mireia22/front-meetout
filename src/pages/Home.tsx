@@ -74,7 +74,7 @@ const Home = () => {
   }, [filters]);
 
   if (loading) {
-    return <Loader />;
+    return <Loader position="page" />;
   }
 
   return (

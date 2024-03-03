@@ -1,4 +1,3 @@
-import { useCommonState } from "../../../hooks/useCommonState";
 import Loader from "../../atoms/Loader";
 
 interface InscriptionFormProps {
@@ -8,14 +7,17 @@ interface InscriptionFormProps {
     name: string;
     email: string;
   };
+  error: string;
+  loading: boolean;
 }
 
 const InscriptionForm: React.FC<InscriptionFormProps> = ({
   handleInputChange,
   handleSubmit,
   data,
+  error,
+  loading
 }) => {
-  const { error, loading } = useCommonState();
   return (
     <form onSubmit={handleSubmit}>
       <article>

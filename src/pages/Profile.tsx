@@ -2,10 +2,14 @@ import { useUserDataContext } from "../hooks/useUserData";
 import { Link } from "react-router-dom";
 import Avatar from "../components/atoms/Avatar";
 import { countItems } from "../utils/countItems";
+import { useEffect } from "react";
 const Profile = () => {
-  const { userData } = useUserDataContext();
+  const { userData, fetchUser } = useUserDataContext();
   const user = userData?.user;
 
+  useEffect(() => {
+    fetchUser();
+  }, []);
   return (
     <section className="profile-container">
       <article>

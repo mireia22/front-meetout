@@ -23,6 +23,7 @@ export type Asistant = {
   _id?: string | null;
   name: string | null;
   email: string | null;
+  avatar: string | null;
 };
 
 export type Event = {

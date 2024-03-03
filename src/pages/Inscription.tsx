@@ -14,7 +14,7 @@ const Inscription = () => {
   });
   console.log("current user", userData);
   const token = userData?.token;
-  const { setError, setLoading, navigate } = useCommonState();
+  const { setError, setLoading, navigate, error, loading } = useCommonState();
 
   useEffect(() => {
     if (!token) {
@@ -49,6 +49,7 @@ const Inscription = () => {
     } catch (error) {
       console.log(error);
     }
+  
   };
   return (
     <section>
@@ -57,6 +58,8 @@ const Inscription = () => {
         handleInputChange={handleInputChange}
         handleSubmit={makeInscription}
         data={asistantData}
+        error={error}
+        loading={loading}
       />
     </section>
   );

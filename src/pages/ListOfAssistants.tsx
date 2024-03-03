@@ -4,8 +4,11 @@ import { Asistant } from "../types/Types";
 import { useCommonState } from "../hooks/useCommonState";
 import Loader from "../components/atoms/Loader";
 import { countItems } from "../utils/countItems";
+import Avatar from "../components/atoms/Avatar";
+import { useUserDataContext } from "../hooks/useUserData";
 
 const ListOfAssistants = () => {
+  const { userData } = useUserDataContext();
   const { eventId } = useParams();
   const [asistants, setAssistants] = useState<Asistant[]>([]);
   const [event, setEvent] = useState(null);
@@ -48,7 +51,7 @@ const ListOfAssistants = () => {
   }, []);
 
   if (loading) {
-    return <Loader />;
+    return <Loader position="page" />;
   }
   return (
     <article>
@@ -60,6 +63,7 @@ const ListOfAssistants = () => {
           <>
             {asistants.map((assistant) => (
               <li key={assistant._id} className="asistant">
+                <Avatar user={userData?.user} size="small" />
                 <p> {assistant.name}</p>
               </li>
             ))}
