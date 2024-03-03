@@ -1,5 +1,5 @@
-import { DIFFICULTY, SPORTS } from "../constants/constants";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { DIFFICULTY, SPORTS } from "../../constants/constants";
 
 interface FilterEventsProps {
   onChange: (

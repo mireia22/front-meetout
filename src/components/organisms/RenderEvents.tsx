@@ -1,6 +1,6 @@
-import EventInfo from "./EventInfo";
 import { Link } from "react-router-dom";
-import { Event, UserDataWithToken } from "../types/Types";
+import EventInfo from "../molecules/EventInfo";
+import { UserDataWithToken, Event } from "../../types/Types";
 
 interface RenderEventsProps {
   defaultEvents: Event[];

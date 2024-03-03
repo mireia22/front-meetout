@@ -7,7 +7,7 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({ position }) => {
   return (
     <div className={`loader-container ${position === "page" ? "page" : ""}`}>
-      <p className="loader">Loading...🍃</p>
+      <p>Loading...🍃</p>
     </div>
   );
 };

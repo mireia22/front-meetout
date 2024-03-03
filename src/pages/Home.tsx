@@ -1,11 +1,11 @@
-import FilterEvents from "../components/FilterEvents";
 import { useFormInput } from "../hooks/useFormInput";
 import { useEffect, useState } from "react";
 import { useCommonState } from "../hooks/useCommonState";
 import { useUserDataContext } from "../hooks/useUserData";
 import Loader from "../components/atoms/Loader";
-import RenderEvents from "../components/RenderEvents";
 import exampleEvents from "../constants/seed";
+import FilterEvents from "../components/organisms/FilterEvents";
+import RenderEvents from "../components/organisms/RenderEvents";
 
 const Home = () => {
   const { formState: filters, handleInputChange } = useFormInput({

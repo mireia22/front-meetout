@@ -1,5 +1,6 @@
 import React from "react";
 import { LoginFormUserData } from "../../../types/Types";
+import Loader from "../../atoms/Loader";
 
 interface LoginFormProps {
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -18,6 +19,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   error,
   userData,
   handleInputChange,
+  loading,
 }) => {
   return (
     <form onSubmit={onFormSubmit}>
@@ -46,7 +48,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         </div>
       </article>
       {error && <p>🚫 {error}</p>}
-      <button type="submit">Login</button>
+      <button type="submit">{loading ? <Loader /> : "Login"}</button>
     </form>
   );
 };

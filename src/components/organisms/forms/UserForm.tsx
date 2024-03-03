@@ -1,6 +1,7 @@
 import React from "react";
 import { UserData } from "../../../types/Types";
 import InputFile from "../../atoms/InputFile";
+import Loader from "../../atoms/Loader";
 
 interface UserFormProps {
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -21,6 +22,7 @@ const UserForm: React.FC<UserFormProps> = ({
   setFileInput,
   handleInputChange,
   buttonText,
+  loading,
 }) => {
   return (
     <form onSubmit={onFormSubmit}>
@@ -68,7 +70,7 @@ const UserForm: React.FC<UserFormProps> = ({
         )}
       </article>
       {error && <p>🚫 {error}</p>}
-      <button type="submit">{buttonText}</button>
+      <button type="submit">{loading ? <Loader /> : buttonText}</button>
     </form>
   );
 };

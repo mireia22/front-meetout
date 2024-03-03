@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
-import Loader from "../components/atoms/Loader";
 import UserForm from "../components/organisms/forms/UserForm";
 import { useFormInput } from "../hooks/useFormInput";
 
@@ -66,13 +65,12 @@ const EditProfile = () => {
       setLoading(false);
     }
   };
-  if (loading) {
-    return <Loader />;
-  }
+
   return (
     <section>
       <h2>Edit Profile:</h2>
       <UserForm
+        loading={loading}
         onFormSubmit={editUser}
         error={error}
         userData={localUserData}
