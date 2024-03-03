@@ -6,7 +6,7 @@ const exampleEvents: Event[] = [
   {
     _id: "1",
     title: "Running  Meetup",
-    date: "19-04-2024",
+    date: "19-02-2024",
     description: "Morning run in Central Park!",
     ubication: "New York",
     sport: "Running",
@@ -17,7 +17,7 @@ const exampleEvents: Event[] = [
       password: "mire",
     },
 
-    createdAt: "2024-04-18",
+    createdAt: "2024-02-18",
     difficulty: "🟡 Medium",
     eventImage: runningImage,
     participants: [
@@ -25,11 +25,13 @@ const exampleEvents: Event[] = [
         _id: "1",
         name: "Mire",
         email: "mire@mire.com",
+        avatar: ".",
       },
       {
         _id: "2",
         name: "Admin",
         email: "admin@admin.com",
+        avatar: ".",
       },
     ],
   },
@@ -46,7 +48,7 @@ const exampleEvents: Event[] = [
       email: "admin@admin.com",
       password: "admin",
     },
-    createdAt: "2024-04-18",
+    createdAt: "2024-02-18",
     difficulty: "🟢 Easy",
     eventImage: skateparkImage,
     participants: [
@@ -54,6 +56,7 @@ const exampleEvents: Event[] = [
         _id: "2",
         name: "Admin",
         email: "admin@admin.com",
+        avatar: "",
       },
     ],
   },
