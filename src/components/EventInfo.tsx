@@ -34,7 +34,6 @@ const EventInfo: React.FC<EventInfoProps> = ({ event }) => {
   const isUserCreator = user?.postedEvents?.some(
     (postedEvent) => postedEvent._id === event._id
   );
-
   const { navigate } = useCommonState();
   useEffect(() => {
     fetchUser();
