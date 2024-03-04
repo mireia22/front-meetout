@@ -1,3 +1,5 @@
+import "./InputFile.css";
+
 interface InputFileProps {
   onChange: (file: File | null) => void;
   inputName: string;

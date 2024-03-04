@@ -1,5 +1,5 @@
-import { useCommonState } from "../../hooks/useCommonState";
-import { useUserDataContext } from "../../hooks/useUserData";
+import { useCommonState } from "../../../hooks/useCommonState";
+import { useUserDataContext } from "../../../hooks/useUserData";
 
 const LogoutBtn = () => {
   const { setUserData } = useUserDataContext();

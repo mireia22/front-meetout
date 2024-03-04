@@ -1,4 +1,4 @@
-import React from "react";
+import "./Loader.css";
 
 interface LoaderProps {
   position?: "button" | "page";

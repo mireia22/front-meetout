@@ -1,0 +1,10 @@
+.example-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.example-events {
+  filter: grayscale(100%);
+  pointer-events: none;
+}

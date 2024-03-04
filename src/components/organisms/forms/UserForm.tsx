@@ -1,7 +1,7 @@
 import React from "react";
 import { UserData } from "../../../types/Types";
-import InputFile from "../../atoms/InputFile";
-import Loader from "../../atoms/Loader";
+import Loader from "../../atoms/Loader/Loader";
+import InputFile from "../../atoms/InputFile/InputFile";
 
 interface UserFormProps {
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;

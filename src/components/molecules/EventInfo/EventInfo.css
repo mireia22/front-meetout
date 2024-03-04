@@ -1,0 +1,50 @@
+.all-events {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.event-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: -5px -3px 33px -1px rgba(29, 7, 52, 0.2);
+  justify-content: space-between;
+  align-items: center;
+  width: 16rem;
+  min-height: 30rem;
+  border-radius: 8px;
+  > article {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+    > a {
+      background-color: var(--dark-purple);
+    }
+    .warning-link {
+      background-color: #ec4156;
+    }
+  }
+}
+.card-event-image {
+  display: flex;
+  height: 10rem;
+  width: 12rem;
+  background-color: #000000;
+  border-radius: 5px;
+  > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.ubication {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}

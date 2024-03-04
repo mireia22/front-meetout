@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { useCommonState } from "../../hooks/useCommonState";
-import { useUserDataContext } from "../../hooks/useUserData";
-import { Event } from "../../types/Types";
-import Creator from "./Creator";
+import "./EventInfo.css";
+import { Event } from "../../../types/Types";
+import { useCommonState } from "../../../hooks/useCommonState";
+import { useUserDataContext } from "../../../hooks/useUserData";
+import Creator from "../Creator/Creator";
 
 interface EventInfoProps {
   event: Event;

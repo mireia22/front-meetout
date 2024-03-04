@@ -1,6 +1,6 @@
 import React from "react";
 import { LoginFormUserData } from "../../../types/Types";
-import Loader from "../../atoms/Loader";
+import Loader from "../../atoms/Loader/Loader";
 
 interface LoginFormProps {
   onFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;

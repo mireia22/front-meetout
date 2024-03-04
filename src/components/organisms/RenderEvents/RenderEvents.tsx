@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import EventInfo from "../molecules/EventInfo";
-import { UserDataWithToken, Event } from "../../types/Types";
-
+import "./RenderEvents.css";
+import { Event, UserDataWithToken } from "../../../types/Types";
+import EventInfo from "../../molecules/EventInfo/EventInfo";
 interface RenderEventsProps {
   defaultEvents: Event[];
   events: Event[];
@@ -24,7 +24,7 @@ const RenderEvents: React.FC<RenderEventsProps> = ({
           ))}
         </ul>
       ) : (
-        <p>No events yet.</p>
+        <h3>No events yet.</h3>
       )}
       {defaultEvents && defaultEvents.length > 0 && (
         <div className="example-div">

@@ -1,0 +1,12 @@
+.inputfile-container {
+  align-self: center;
+  border: 2px solid var(--white);
+  padding: 0.35rem;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-file {
+  position: absolute;
+  opacity: 0;
+}

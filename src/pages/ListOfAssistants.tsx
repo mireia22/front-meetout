@@ -2,16 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Asistant } from "../types/Types";
 import { useCommonState } from "../hooks/useCommonState";
-import Loader from "../components/atoms/Loader";
-import { countItems } from "../utils/countItems";
-import Avatar from "../components/atoms/Avatar";
 import { useUserDataContext } from "../hooks/useUserData";
+import Loader from "../components/atoms/Loader/Loader";
+import EventAssistants from "../components/molecules/EventAssistants/EventAssistants";
 
 const ListOfAssistants = () => {
   const { userData } = useUserDataContext();
   const { eventId } = useParams();
   const [asistants, setAssistants] = useState<Asistant[]>([]);
-  const [event, setEvent] = useState(null);
   const { error, setError, loading, setLoading } = useCommonState();
 
   const fetchAssistants = async () => {
@@ -36,7 +34,6 @@ const ListOfAssistants = () => {
       console.log("fetched data", fetchedData);
 
       if (fetchedData.message === "Success") {
-        setEvent(fetchedData.eventTitle);
         setAssistants(fetchedData.asistants);
       }
     } catch (error) {
@@ -54,25 +51,11 @@ const ListOfAssistants = () => {
     return <Loader position="page" />;
   }
   return (
-    <article>
-      <ul className="asistants-list">
-        <h3>
-          Asistants {event}: {countItems(asistants)}
-        </h3>
-        {asistants ? (
-          <>
-            {asistants.map((assistant) => (
-              <li key={assistant._id} className="asistant">
-                <Avatar user={userData?.user} size="small" />
-                <p> {assistant.name}</p>
-              </li>
-            ))}
-          </>
-        ) : (
-          error && <p>🚫{error}</p>
-        )}
-      </ul>
-    </article>
+    <EventAssistants
+      asistants={asistants}
+      user={userData?.user}
+      error={error}
+    />
   );
 };
 

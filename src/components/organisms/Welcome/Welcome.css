@@ -1,0 +1,27 @@
+.welcome {
+  min-height: calc(100vh - (48px + 48px));
+  color: var(--white);
+  background-image: url("./public/images/welcome.jpg");
+  background-size: cover;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: end;
+  > article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+.welcome-link {
+  background-color: var(--yellow);
+  color: var(--black);
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

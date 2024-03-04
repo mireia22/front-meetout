@@ -1,4 +1,4 @@
-import Loader from "../../atoms/Loader";
+import Loader from "../../atoms/Loader/Loader";
 
 interface InscriptionFormProps {
   handleInputChange: React.ChangeEventHandler<HTMLInputElement>;
@@ -16,7 +16,7 @@ const InscriptionForm: React.FC<InscriptionFormProps> = ({
   handleSubmit,
   data,
   error,
-  loading
+  loading,
 }) => {
   return (
     <form onSubmit={handleSubmit}>

@@ -1,7 +1,7 @@
 import React from "react";
-import { formatTimeAgo } from "../../utils/formatDates";
-import Avatar from "../atoms/Avatar";
-import { UserData } from "../../types/Types";
+import Avatar from "../../atoms/Avatar/Avatar";
+import { formatTimeAgo } from "../../../utils/formatDates";
+import { UserData } from "../../../types/Types";
 
 interface CreatorProps {
   creator?: UserData | null;

@@ -1,0 +1,22 @@
+.asistants-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 4rem;
+  justify-content: start;
+  > h3 {
+    align-self: center;
+  }
+}
+.asistant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(29, 7, 52, 0.1);
+  width: 20rem;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+}
