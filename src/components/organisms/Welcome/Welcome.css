@@ -1,7 +1,7 @@
 .welcome {
   min-height: calc(100vh - (48px + 48px));
   color: var(--white);
-  background-image: url("./public/images/welcome.jpg");
+  background-image: url("../../../public/images/welcome.jpg");
   background-size: cover;
   display: flex;
   padding: 1rem;
