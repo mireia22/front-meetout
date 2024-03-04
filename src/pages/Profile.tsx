@@ -16,7 +16,7 @@ const Profile: React.FC = () => {
       <UserInfo user={user} />
       <article className="user-events">
         <UserEvents events={user?.postedEvents} title="POSTED EVENTS:" />
-        <UserEvents events={user?.asistedEvents} title="ASSSITED EVENTS:" />
+        <UserEvents events={user?.asistedEvents} title="ASSITED EVENTS:" />
       </article>
     </section>
   );
