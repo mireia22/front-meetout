@@ -4,7 +4,7 @@ import { useUserDataContext } from "../hooks/useUserData";
 import { useCommonState } from "../hooks/useCommonState";
 import { useFormInput } from "../hooks/useFormInput";
 
-const PostEvent = () => {
+const PostEvent: React.FC = () => {
   const {
     formState: event,
     handleInputChange,

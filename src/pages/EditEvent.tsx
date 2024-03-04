@@ -1,11 +1,11 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useUserDataContext } from "../hooks/useUserData";
 import EventForm from "../components/organisms/forms/EventForm";
 import { useCommonState } from "../hooks/useCommonState";
 import { useFormInput } from "../hooks/useFormInput";
 
-const EditEvent = () => {
+const EditEvent: React.FC = () => {
   const {
     formState: event,
     setFormState,
@@ -28,60 +28,60 @@ const EditEvent = () => {
     if (!token) {
       navigate("/");
     }
-  }, [token, navigate]);
+  }, []);
 
-  const editEvent = useCallback(
-    async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      setError("");
-      try {
-        setLoading(true);
+  const editEvent = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    try {
+      setLoading(true);
 
-        const formData = new FormData();
-        formData.append("title", event.title);
-        formData.append("date", event.date);
-        formData.append("ubication", event.ubication);
-        formData.append("sport", event.sport);
-        formData.append("difficulty", event.difficulty);
-        if (eventImage) {
-          formData.append("eventImage", eventImage);
-        }
-        const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}/events/${eventId}`,
-          {
-            method: "PUT",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-            body: formData,
-          }
-        );
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.log("error", errorData.message);
-          setError(errorData.message);
-        }
-
-        const updatedEvent = await response.json();
-        if (!updatedEvent) {
-          throw new Error("Server response is empty.");
-        }
-
-        setLoading(false);
-        setFormState((prevEventData) => ({
-          ...prevEventData,
-          ...updatedEvent,
-        }));
-
-        navigate("/");
-      } catch (err) {
-        console.log(error);
+      const formData = new FormData();
+      formData.append("title", event.title);
+      formData.append("date", event.date);
+      formData.append("ubication", event.ubication);
+      formData.append("sport", event.sport);
+      formData.append("difficulty", event.difficulty);
+      if (eventImage) {
+        formData.append("eventImage", eventImage);
       }
-    },
-    [event, eventImage, eventId]
-  );
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_URL}/events/${eventId}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          body: formData,
+        }
+      );
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log("error", errorData.message);
+        setError(errorData.message);
+        return;
+      }
 
-  const deleteEvent = useCallback(async () => {
+      const updatedEvent = await response.json();
+      if (!updatedEvent) {
+        throw new Error("Server response is empty.");
+      }
+
+      setLoading(false);
+      setFormState((prevEventData) => ({
+        ...prevEventData,
+        ...updatedEvent,
+      }));
+
+      navigate("/");
+    } catch (err) {
+      console.log(error);
+      setError("An error occurred. Please try again later.");
+      setLoading(false);
+    }
+  };
+
+  const deleteEvent = async () => {
     setError("");
     try {
       setLoading(true);
@@ -105,8 +105,10 @@ const EditEvent = () => {
       setLoading(false);
     } catch (err) {
       console.log(error);
+      setError("An error occurred. Please try again later.");
+      setLoading(false);
     }
-  }, [eventId]);
+  };
 
   return (
     <section>

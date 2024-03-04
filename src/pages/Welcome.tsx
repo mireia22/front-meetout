@@ -1,6 +1,6 @@
 import WelcomeComp from "../components/organisms/Welcome/Welcome";
 
-const Welcome = () => {
+const Welcome: React.FC = () => {
   return <WelcomeComp />;
 };
 

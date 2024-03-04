@@ -6,7 +6,7 @@ import { useUserDataContext } from "../hooks/useUserData";
 import Loader from "../components/atoms/Loader/Loader";
 import EventAssistants from "../components/molecules/EventAssistants/EventAssistants";
 
-const ListOfAssistants = () => {
+const ListOfAssistants: React.FC = () => {
   const { userData } = useUserDataContext();
   const { eventId } = useParams();
   const [asistants, setAssistants] = useState<Asistant[]>([]);

@@ -4,7 +4,7 @@ import { useFormInput } from "../hooks/useFormInput";
 import { useCommonState } from "../hooks/useCommonState";
 import { useUserDataContext } from "../hooks/useUserData";
 
-const Login = () => {
+const Login: React.FC = () => {
   const { setUserData } = useUserDataContext();
   const { formState: formUserData, handleInputChange } = useFormInput({
     email: "",

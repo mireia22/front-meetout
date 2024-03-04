@@ -13,7 +13,8 @@ import Welcome from "./pages/Welcome";
 import Home from "./pages/Home";
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
-const App = () => {
+
+const App: React.FC = () => {
   const { userData } = useUserDataContext();
   return (
     <>

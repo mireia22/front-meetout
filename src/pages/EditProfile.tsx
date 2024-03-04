@@ -4,7 +4,7 @@ import { useCommonState } from "../hooks/useCommonState";
 import UserForm from "../components/organisms/forms/UserForm";
 import { useFormInput } from "../hooks/useFormInput";
 
-const EditProfile = () => {
+const EditProfile: React.FC = () => {
   const {
     formState: localUserData,
     setFormState,

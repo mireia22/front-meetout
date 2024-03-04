@@ -5,7 +5,7 @@ import { useFormInput } from "../hooks/useFormInput";
 import { useEffect } from "react";
 import { useCommonState } from "../hooks/useCommonState";
 
-const Inscription = () => {
+const Inscription: React.FC = () => {
   const { userData } = useUserDataContext();
   const { eventId } = useParams();
   const { formState: asistantData, handleInputChange } = useFormInput({
@@ -49,7 +49,6 @@ const Inscription = () => {
     } catch (error) {
       console.log(error);
     }
-  
   };
   return (
     <section>

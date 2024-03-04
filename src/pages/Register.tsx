@@ -11,7 +11,7 @@ interface LocalUserData {
   password: string;
 }
 
-const Register = () => {
+const Register: React.FC = () => {
   const { setUserData } = useUserDataContext();
   const { formState: localUserData, handleInputChange } =
     useFormInput<LocalUserData>({

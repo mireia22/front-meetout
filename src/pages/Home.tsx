@@ -7,7 +7,7 @@ import Loader from "../components/atoms/Loader/Loader";
 import FilterEvents from "../components/organisms/FilterEvents/FilterEvents";
 import RenderEvents from "../components/organisms/RenderEvents/RenderEvents";
 
-const Home = () => {
+const Home: React.FC = () => {
   const { formState: filters, handleInputChange } = useFormInput({
     sport: "",
     difficulty: "",
